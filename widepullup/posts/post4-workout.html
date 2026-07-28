@@ -92,6 +92,8 @@
   #fg .moves span{color:var(--mist); font-weight:600; font-size:12.5px; letter-spacing:.06em; margin-left:8px}
   #fg .moves p{margin:6px 0 0; color:var(--slate); font-size:14.5px}
   #fg .duo{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:24px}
+  #fg .vids{display:grid; gap:12px; margin-top:24px}
+  @media (min-width:880px){ .vids{grid-template-columns:repeat(3,1fr)} }
 
   /* ── care table ── */
   #fg table{width:100%; border-collapse:collapse; margin-top:24px; font-size:14.5px}
@@ -169,6 +171,20 @@
       <p>매달린 상태에서 다리를 들어 올립니다. 헬스 스트랩을 가운데 손잡이에 걸면 그립 부담 없이 코어에 집중할 수 있습니다.</p>
     </li>
   </ul>
+  <div class="vids">
+    <figure class="plate" style="margin:0">
+      <video src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/workout-pullup.mp4" autoplay muted loop playsinline aria-label="와이드 풀업 시연 영상"></video>
+      <figcaption>와이드 풀업</figcaption>
+    </figure>
+    <figure class="plate" style="margin:0">
+      <video src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/workout-chinup.mp4" autoplay muted loop playsinline aria-label="친업 시연 영상"></video>
+      <figcaption>친업</figcaption>
+    </figure>
+    <figure class="plate" style="margin:0">
+      <video src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/workout-legraise.mp4" autoplay muted loop playsinline aria-label="행잉 레그레이즈 시연 영상"></video>
+      <figcaption>행잉 레그레이즈</figcaption>
+    </figure>
+  </div>
   <div class="duo">
     <figure class="plate" style="margin:0"><img src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/pullup-start.jpg" alt="와이드 풀업 시작 자세"></figure>
     <figure class="plate" style="margin:0"><img src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/pullup-end.jpg" alt="와이드 풀업 완료 자세"></figure>
