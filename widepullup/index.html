@@ -144,6 +144,11 @@
   .duo{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:24px}
   .moves figure{margin:14px 0 0}
   @media (min-width:880px){ .moves figure{max-width:520px} }
+  .mgroup{
+    font-size:12px; font-weight:800; letter-spacing:.2em; color:var(--mist);
+    margin:38px 0 6px; text-align:center;
+  }
+  .mgroup:first-of-type{margin-top:10px}
 
   /* ── care table ── */
   table{width:100%; border-collapse:collapse; margin-top:24px; font-size:14.5px}
@@ -327,47 +332,55 @@
 <section id="use" class="sec wrap">
   <p class="eyebrow">USE</p>
   <h2>운동 방법</h2>
+  <p class="mgroup">BACK — 등</p>
   <ul class="moves">
     <li>
-      <h3>매달리기<span>그립 · 어깨</span></h3>
-      <p>어깨보다 넓게 잡고 팔을 편 채 가만히 매달립니다. 그립 힘과 어깨 안정성을 기르는 기초 동작입니다.</p>
-      <figure class="plate">
-        <video src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/workout-deadhang.mp4" autoplay muted loop playsinline aria-label="매달리기 시연 영상"></video>
-      </figure>
-    </li>
-    <li>
-      <h3>친업<span>팔 · 등</span></h3>
-      <p>손바닥이 몸 쪽을 향하게 어깨너비로 잡고 몸을 끌어올립니다. 이두근과 등을 함께 사용하는 동작입니다.</p>
-      <figure class="plate">
-        <video src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/workout-chinup.mp4" autoplay muted loop playsinline aria-label="친업 시연 영상"></video>
-      </figure>
-    </li>
-    <li>
-      <h3>와이드 풀업<span>등</span></h3>
+      <h3>와이드 풀업</h3>
       <p>손등이 앞을 향하게 어깨보다 넓게 잡고 가슴을 봉 쪽으로 끌어올립니다. 광배근과 등 상부에 자극이 집중됩니다.</p>
       <figure class="plate">
         <video src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/workout-pullup.mp4" autoplay muted loop playsinline aria-label="와이드 풀업 시연 영상"></video>
+        <figcaption>workout-pullup.mp4 · 원본 ksw755</figcaption>
       </figure>
     </li>
     <li>
-      <h3>행잉 레그레이즈<span>복부</span></h3>
-      <p>매달린 자세에서 무릎을 가슴 쪽으로 끌어올립니다. 복부에 자극이 집중되며, 다리를 펴면 강도가 높아집니다.</p>
-      <figure class="plate">
-        <video src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/workout-legraise.mp4" autoplay muted loop playsinline aria-label="행잉 레그레이즈 시연 영상"></video>
-      </figure>
-    </li>
-    <li>
-      <h3>밴드 풀다운<span>등</span></h3>
+      <h3>밴드 풀다운</h3>
       <p>봉 양쪽 끝 전용 마운트에 밴드를 걸고, 선 자세에서 가슴 쪽으로 당깁니다. 풀업 전에 등 근육을 기르는 동작입니다.</p>
       <figure class="plate">
         <video src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/workout-bandpull.mp4" autoplay muted loop playsinline aria-label="밴드 풀다운 시연 영상"></video>
+        <figcaption>workout-bandpull.mp4 · 원본 ksw763</figcaption>
       </figure>
     </li>
+  </ul>
+  <p class="mgroup">ARMS — 팔 · 등</p>
+  <ul class="moves">
     <li>
-      <h3>밴드 로우<span>등</span></h3>
-      <p>밴드를 전용 마운트에 걸고, 상체를 숙인 자세에서 몸 쪽으로 당깁니다. 등 중앙부에 자극이 집중됩니다.</p>
+      <h3>친업</h3>
+      <p>손바닥이 몸 쪽을 향하게 어깨너비로 잡고 몸을 끌어올립니다. 이두근과 등을 함께 사용하는 동작입니다.</p>
       <figure class="plate">
-        <video src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/workout-bandrow.mp4" autoplay muted loop playsinline aria-label="밴드 로우 시연 영상"></video>
+        <video src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/workout-chinup.mp4" autoplay muted loop playsinline aria-label="친업 시연 영상"></video>
+        <figcaption>workout-chinup.mp4 · 원본 ksw757</figcaption>
+      </figure>
+    </li>
+  </ul>
+  <p class="mgroup">CORE — 복부</p>
+  <ul class="moves">
+    <li>
+      <h3>행잉 레그레이즈</h3>
+      <p>매달린 자세에서 무릎을 가슴 쪽으로 끌어올립니다. 복부에 자극이 집중되며, 다리를 펴면 강도가 높아집니다.</p>
+      <figure class="plate">
+        <video src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/workout-legraise.mp4" autoplay muted loop playsinline aria-label="행잉 레그레이즈 시연 영상"></video>
+        <figcaption>workout-legraise.mp4 · 원본 ksw759</figcaption>
+      </figure>
+    </li>
+  </ul>
+  <p class="mgroup">GRIP — 그립 · 어깨</p>
+  <ul class="moves">
+    <li>
+      <h3>매달리기</h3>
+      <p>어깨보다 넓게 잡고 팔을 편 채 가만히 매달립니다. 그립 힘과 어깨 안정성을 기르는 기초 동작입니다.</p>
+      <figure class="plate">
+        <video src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/workout-deadhang.mp4" autoplay muted loop playsinline aria-label="매달리기 시연 영상"></video>
+        <figcaption>workout-deadhang.mp4 · 원본 ksw751</figcaption>
       </figure>
     </li>
   </ul>
