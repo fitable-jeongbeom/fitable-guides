@@ -92,8 +92,14 @@
   #fg .moves span{color:var(--mist); font-weight:600; font-size:12.5px; letter-spacing:.06em; margin-left:8px}
   #fg .moves p{margin:6px 0 0; color:var(--slate); font-size:14.5px}
   #fg .duo{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:24px}
-  #fg .vids{display:grid; gap:12px; margin-top:24px}
-  @media (min-width:880px){ .vids{grid-template-columns:repeat(3,1fr)} }
+  #fg .moves figure{margin:14px 0 0}
+  #fg .moves .plate video{max-height:560px; object-fit:contain; background:var(--plate)}
+  @media (min-width:880px){ .moves figure{max-width:520px} }
+  #fg .mgroup{
+    font-size:12px; font-weight:800; letter-spacing:.2em; color:var(--mist);
+    margin:38px 0 6px; text-align:center;
+  }
+  #fg .mgroup:first-of-type{margin-top:10px}
 
   /* ── care table ── */
   #fg table{width:100%; border-collapse:collapse; margin-top:24px; font-size:14.5px}
