@@ -1,0 +1,186 @@
+<div id="fg">
+<style>
+  #fg{
+    --ink:#10181F; --slate:#55606A; --mist:#9AA4AC; --line:#E4E7EA;
+    --paper:#FFFFFF; --fog:#F5F6F7; --plate:#FFFFFF;
+    --dark-ink:#0F1822; --dark-text:#EDF0F2; --dark-sub:#9AA4AC;
+    --amber:#8A6A1C; --amber-bg:#FAF5E8;
+  }
+        #fg *{box-sizing:border-box}
+  #fg{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Apple SD Gothic Neo","Pretendard","Malgun Gothic","맑은 고딕",system-ui,sans-serif;
+    line-height:1.7; -webkit-font-smoothing:antialiased; word-break:keep-all;
+  }
+  #fg img{max-width:100%; display:block}
+  #fg a{color:inherit}
+
+  /* ── shared ── */
+  #fg .wrap{max-width:800px; margin:0 auto; padding:0 24px}
+  #fg .wrap-lg{max-width:800px; margin:0 auto; padding:0 24px}
+  #fg .sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+  #fg section{scroll-margin-top:64px}
+  #fg .eyebrow{
+    font-size:11px; font-weight:700; letter-spacing:.24em; color:var(--mist);
+    margin:0 0 14px; text-align:center;
+  }
+  #fg h1, #fg h2, #fg h3{text-wrap:balance; margin:0}
+  #fg h2{font-size:clamp(22px,4.6vw,30px); font-weight:800; letter-spacing:-.02em; line-height:1.35; text-align:center}
+  #fg .lead{color:var(--slate); font-size:15.5px; margin:12px auto 0; text-align:center}
+  #fg .sec{padding:64px 0}
+  #fg .sec + .sec{border-top:1px solid var(--line)}
+  #fg .plate{background:var(--plate); border:1px solid var(--line); border-radius:8px; overflow:hidden}
+  #fg .plate img, #fg .plate video{width:100%; display:block}
+  #fg figure{margin:24px 0 0}
+  #fg .plate figcaption{font-size:12.5px; color:var(--mist); padding:10px 14px; border-top:1px solid var(--line); background:var(--paper); text-align:center}
+
+  /* ── hero ── */
+  #fg .hero{padding:56px 0 64px}
+  #fg .hero .brand{font-size:12px; font-weight:700; letter-spacing:.26em; color:var(--mist); margin:0 0 18px; text-align:center}
+  #fg .hero .sub{color:var(--slate); font-size:16px; margin:16px auto 0; text-align:center}
+  #fg .hero-grid{display:grid; gap:34px}
+  #fg .hero-fig{margin:0}
+  #fg .logo{width:min(430px, 92%); height:auto; margin:0 auto 26px}
+  @media (min-width:880px){
+    #fg .hero-grid{grid-template-columns:1.05fr 1fr; align-items:center; gap:48px}
+    #fg .hero .brand, #fg .hero .sub{text-align:left}
+    #fg .logo{margin:0 0 26px}
+  }
+
+  /* ── dark band ── */
+  #fg .band{background:var(--dark-ink); color:var(--dark-text)}
+  #fg .band .eyebrow{color:var(--dark-sub)}
+  #fg .band .eyebrow::after{background:linear-gradient(90deg, rgba(255,255,255,.18), transparent)}
+  #fg .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,.12); border-radius:8px; overflow:hidden; margin-top:28px}
+  #fg .stat{background:var(--dark-ink); padding:20px 14px; text-align:center}
+  #fg .stat b{display:block; font-size:clamp(17px,3.6vw,23px); font-weight:800; letter-spacing:-.01em; font-variant-numeric:tabular-nums}
+  #fg .stat span{display:block; font-size:12px; color:var(--dark-sub); margin-top:6px; letter-spacing:.02em}
+  #fg .band .note{color:var(--dark-sub); font-size:13px; margin:18px auto 0; text-align:center; max-width:56ch}
+
+  /* ── parts ── */
+  #fg .legend{display:grid; grid-template-columns:repeat(2,1fr); gap:10px 22px; margin-top:24px; padding:0; list-style:none}
+  #fg .legend li{font-size:14px; color:var(--slate); display:flex; gap:10px; align-items:baseline}
+  #fg .legend b{color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap}
+
+  /* ── steps ── */
+  #fg .step{
+    display:grid; grid-template-columns:2.6em 1fr; gap:6px 14px;
+    padding:32px 0; border-top:1px solid var(--line);
+  }
+  #fg .step:first-of-type{border-top:0; padding-top:8px}
+  #fg .step-no{
+    font-size:13px; font-weight:800; letter-spacing:.08em; color:var(--mist);
+    font-variant-numeric:tabular-nums; padding-top:4px;
+  }
+  #fg .step-txt h3{font-size:17.5px; font-weight:800; letter-spacing:-.01em}
+  #fg .step-txt p{margin:8px 0 0; color:var(--slate); font-size:14.5px}
+  #fg .step figure{grid-column:2; margin:14px 0 0}
+  @media (min-width:880px){
+    #fg .step{grid-template-columns:2.6em 1fr 44%; gap:6px 26px; align-items:start}
+    #fg .step figure{grid-column:3; grid-row:1; margin:0}
+  }
+  #fg .check{
+    margin-top:8px; padding:18px 20px; border-radius:8px;
+    background:var(--amber-bg); color:var(--amber); font-size:14.5px; font-weight:600;
+    text-align:center;
+  }
+
+  /* ── use ── */
+  #fg .moves{margin:26px 0 0; padding:0; list-style:none; display:grid; gap:18px}
+  #fg .moves li{border-left:2px solid var(--line); padding-left:16px}
+  #fg .moves h3{font-size:16px; font-weight:800}
+  #fg .moves span{color:var(--mist); font-weight:600; font-size:12.5px; letter-spacing:.06em; margin-left:8px}
+  #fg .moves p{margin:6px 0 0; color:var(--slate); font-size:14.5px}
+  #fg .duo{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:24px}
+
+  /* ── care table ── */
+  #fg table{width:100%; border-collapse:collapse; margin-top:24px; font-size:14.5px}
+  #fg th, #fg td{text-align:left; padding:13px 6px; border-bottom:1px solid var(--line); vertical-align:top}
+  #fg th{font-size:12px; letter-spacing:.08em; color:var(--mist); font-weight:700}
+  #fg td:first-child{font-weight:700; white-space:nowrap; padding-right:18px}
+  #fg td:last-child{color:var(--slate)}
+
+  /* ── safety list ── */
+  #fg .donts{margin:24px 0 0; padding:0; list-style:none; display:grid; gap:12px}
+  #fg .donts li{display:flex; gap:12px; font-size:14.5px; color:var(--dark-text)}
+  #fg .donts li::before{content:"—"; color:var(--dark-sub); flex:none}
+
+  /* ── faq ── */
+  #fg details{border-top:1px solid var(--line)}
+  #fg details:last-of-type{border-bottom:1px solid var(--line)}
+  #fg summary{
+    cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;
+    padding:18px 2px; font-weight:700; font-size:15px; gap:16px;
+  }
+  #fg summary::-webkit-details-marker{display:none}
+  #fg summary::after{content:"+"; color:var(--mist); font-weight:400; font-size:20px; flex:none}
+  #fg details[open] summary::after{content:"–"}
+  #fg summary:focus-visible{outline:2px solid var(--mist); outline-offset:2px}
+  #fg details p{margin:0 0 20px; padding:0 2px; color:var(--slate); font-size:14.5px}
+
+  /* ── footer ── */
+  #fg .foot{background:var(--dark-ink); color:var(--dark-sub); margin-top:64px}
+  #fg .foot-in{max-width:800px; margin:0 auto; padding:44px 24px 52px; font-size:13px}
+  #fg .foot b{color:var(--dark-text); font-size:14px; letter-spacing:.03em}
+  #fg .foot a{color:var(--dark-text); text-decoration:none}
+  #fg .foot a:hover{text-decoration:underline; text-underline-offset:4px}
+  #fg .foot .row{display:flex; flex-wrap:wrap; gap:8px 22px; margin:14px 0 0}
+  #fg .foot .legal{margin-top:28px; padding-top:20px; border-top:1px solid rgba(255,255,255,.12); font-size:12px; line-height:1.8}
+
+  @media (max-width:560px){
+    #fg .legend{grid-template-columns:1fr}
+    #fg .sec{padding:52px 0}
+  }
+
+  /* ── mobile: center like the product page ── */
+  @media (max-width:879px){
+    #fg .step{grid-template-columns:1fr; gap:4px}
+    #fg .step-no{padding-top:0; text-align:center}
+    #fg .step-txt{text-align:center}
+    #fg .step-txt p{margin-left:auto; margin-right:auto}
+    #fg .step figure{grid-column:1; margin-top:16px}
+    #fg .legend{width:fit-content; margin-left:auto; margin-right:auto}
+    #fg .moves li{border-left:0; padding-left:0; text-align:center}
+    #fg .donts{width:fit-content; margin-left:auto; margin-right:auto}
+    #fg .foot-in{text-align:center}
+    #fg .foot .row{justify-content:center}
+    #fg table th, #fg table td{text-align:left}
+    #fg summary, #fg details p{text-align:left}
+  }
+</style>
+<header class="hero">
+  <div class="wrap-lg hero-grid">
+    <div>
+      <img class="logo logo-l" src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/logo-hero-light.png" alt="objet — WIDE PULL-UP BAR ARC 와이드 풀업 바 아크">
+      <p class="brand">USER GUIDE</p>
+      <h1 class="sr">와이드 풀업 바 아크 사용 가이드</h1>
+      <p class="sub">문틀에 고정해 사용하는 무타공 압착식 턱걸이 기구입니다. 중앙 회전부를 돌리면 양쪽이 동시에 늘어나고, 양쪽 끝 수평계로 혼자서도 수평을 맞출 수 있습니다.</p>
+    </div>
+    <figure class="plate hero-fig"><img src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/hero.jpg" alt="문틀에 설치된 와이드 풀업 바 아크"></figure>
+  </div>
+</header>
+
+<section class="band" aria-label="핵심 확인 사항">
+  <div class="wrap" style="padding:48px 20px 56px">
+    <p class="eyebrow">CHECK FIRST</p>
+    <h2 style="color:var(--dark-text)">세 가지만 확인하세요</h2>
+    <div class="stats">
+      <div class="stat"><b>72–96<small style="font-size:.62em">cm</small></b><span>문틀 안쪽 너비</span></div>
+      <div class="stat"><b>100kg 이하</b><span>권장 체중 · 1인 사용</span></div>
+      <div class="stat"><b>약 30초</b><span>도구 없이 설치</span></div>
+    </div>
+    <p class="note">유리문 · 샌드위치 판넬 · 합판 · 석고보드 · 미장 벽면 · 벽지만 발린 벽면 등 강도가 약한 문틀에는 설치하지 마세요. 설치는 반드시 성인이 진행해 주세요.</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-in">
+    <b>도움이 필요하신가요</b>
+    <div class="row">
+      <a href="https://fitable.channel.io/home">채널톡 문의</a>
+      <span>070-4415-1857 (평일 10–16시)</span>
+    </div>
+    <p class="legal">안내된 사항을 준수하지 않을 경우 부상의 위험이 있습니다. 이상 발견 시 즉시 사용을 중단하고 고객센터로 문의해 주세요. 안전수칙 미준수로 인한 사고에 대해 제조사는 책임지지 않습니다.<br>주식회사 페셔네이트 · FITABLE · 충청남도 천안시 서북구 불당 36길 63, 304-25호</p>
+  </div>
+</footer>
+</div>

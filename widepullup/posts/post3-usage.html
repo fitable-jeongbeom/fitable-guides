@@ -1,0 +1,258 @@
+<div id="fg">
+<style>
+  #fg{
+    --ink:#10181F; --slate:#55606A; --mist:#9AA4AC; --line:#E4E7EA;
+    --paper:#FFFFFF; --fog:#F5F6F7; --plate:#FFFFFF;
+    --dark-ink:#0F1822; --dark-text:#EDF0F2; --dark-sub:#9AA4AC;
+    --amber:#8A6A1C; --amber-bg:#FAF5E8;
+  }
+        #fg *{box-sizing:border-box}
+  #fg{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Apple SD Gothic Neo","Pretendard","Malgun Gothic","맑은 고딕",system-ui,sans-serif;
+    line-height:1.7; -webkit-font-smoothing:antialiased; word-break:keep-all;
+  }
+  #fg img{max-width:100%; display:block}
+  #fg a{color:inherit}
+
+  /* ── shared ── */
+  #fg .wrap{max-width:800px; margin:0 auto; padding:0 24px}
+  #fg .wrap-lg{max-width:800px; margin:0 auto; padding:0 24px}
+  #fg .sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+  #fg section{scroll-margin-top:64px}
+  #fg .eyebrow{
+    font-size:11px; font-weight:700; letter-spacing:.24em; color:var(--mist);
+    margin:0 0 14px; text-align:center;
+  }
+  #fg h1, #fg h2, #fg h3{text-wrap:balance; margin:0}
+  #fg h2{font-size:clamp(22px,4.6vw,30px); font-weight:800; letter-spacing:-.02em; line-height:1.35; text-align:center}
+  #fg .lead{color:var(--slate); font-size:15.5px; margin:12px auto 0; text-align:center}
+  #fg .sec{padding:64px 0}
+  #fg .sec + .sec{border-top:1px solid var(--line)}
+  #fg .plate{background:var(--plate); border:1px solid var(--line); border-radius:8px; overflow:hidden}
+  #fg .plate img, #fg .plate video{width:100%; display:block}
+  #fg figure{margin:24px 0 0}
+  #fg .plate figcaption{font-size:12.5px; color:var(--mist); padding:10px 14px; border-top:1px solid var(--line); background:var(--paper); text-align:center}
+
+  /* ── hero ── */
+  #fg .hero{padding:56px 0 64px}
+  #fg .hero .brand{font-size:12px; font-weight:700; letter-spacing:.26em; color:var(--mist); margin:0 0 18px; text-align:center}
+  #fg .hero .sub{color:var(--slate); font-size:16px; margin:16px auto 0; text-align:center}
+  #fg .hero-grid{display:grid; gap:34px}
+  #fg .hero-fig{margin:0}
+  #fg .logo{width:min(430px, 92%); height:auto; margin:0 auto 26px}
+  @media (min-width:880px){
+    #fg .hero-grid{grid-template-columns:1.05fr 1fr; align-items:center; gap:48px}
+    #fg .hero .brand, #fg .hero .sub{text-align:left}
+    #fg .logo{margin:0 0 26px}
+  }
+
+  /* ── dark band ── */
+  #fg .band{background:var(--dark-ink); color:var(--dark-text)}
+  #fg .band .eyebrow{color:var(--dark-sub)}
+  #fg .band .eyebrow::after{background:linear-gradient(90deg, rgba(255,255,255,.18), transparent)}
+  #fg .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,.12); border-radius:8px; overflow:hidden; margin-top:28px}
+  #fg .stat{background:var(--dark-ink); padding:20px 14px; text-align:center}
+  #fg .stat b{display:block; font-size:clamp(17px,3.6vw,23px); font-weight:800; letter-spacing:-.01em; font-variant-numeric:tabular-nums}
+  #fg .stat span{display:block; font-size:12px; color:var(--dark-sub); margin-top:6px; letter-spacing:.02em}
+  #fg .band .note{color:var(--dark-sub); font-size:13px; margin:18px auto 0; text-align:center; max-width:56ch}
+
+  /* ── parts ── */
+  #fg .legend{display:grid; grid-template-columns:repeat(2,1fr); gap:10px 22px; margin-top:24px; padding:0; list-style:none}
+  #fg .legend li{font-size:14px; color:var(--slate); display:flex; gap:10px; align-items:baseline}
+  #fg .legend b{color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap}
+
+  /* ── steps ── */
+  #fg .step{
+    display:grid; grid-template-columns:2.6em 1fr; gap:6px 14px;
+    padding:32px 0; border-top:1px solid var(--line);
+  }
+  #fg .step:first-of-type{border-top:0; padding-top:8px}
+  #fg .step-no{
+    font-size:13px; font-weight:800; letter-spacing:.08em; color:var(--mist);
+    font-variant-numeric:tabular-nums; padding-top:4px;
+  }
+  #fg .step-txt h3{font-size:17.5px; font-weight:800; letter-spacing:-.01em}
+  #fg .step-txt p{margin:8px 0 0; color:var(--slate); font-size:14.5px}
+  #fg .step figure{grid-column:2; margin:14px 0 0}
+  @media (min-width:880px){
+    #fg .step{grid-template-columns:2.6em 1fr 44%; gap:6px 26px; align-items:start}
+    #fg .step figure{grid-column:3; grid-row:1; margin:0}
+  }
+  #fg .check{
+    margin-top:8px; padding:18px 20px; border-radius:8px;
+    background:var(--amber-bg); color:var(--amber); font-size:14.5px; font-weight:600;
+    text-align:center;
+  }
+
+  /* ── use ── */
+  #fg .moves{margin:26px 0 0; padding:0; list-style:none; display:grid; gap:18px}
+  #fg .moves li{border-left:2px solid var(--line); padding-left:16px}
+  #fg .moves h3{font-size:16px; font-weight:800}
+  #fg .moves span{color:var(--mist); font-weight:600; font-size:12.5px; letter-spacing:.06em; margin-left:8px}
+  #fg .moves p{margin:6px 0 0; color:var(--slate); font-size:14.5px}
+  #fg .duo{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:24px}
+
+  /* ── care table ── */
+  #fg table{width:100%; border-collapse:collapse; margin-top:24px; font-size:14.5px}
+  #fg th, #fg td{text-align:left; padding:13px 6px; border-bottom:1px solid var(--line); vertical-align:top}
+  #fg th{font-size:12px; letter-spacing:.08em; color:var(--mist); font-weight:700}
+  #fg td:first-child{font-weight:700; white-space:nowrap; padding-right:18px}
+  #fg td:last-child{color:var(--slate)}
+
+  /* ── safety list ── */
+  #fg .donts{margin:24px 0 0; padding:0; list-style:none; display:grid; gap:12px}
+  #fg .donts li{display:flex; gap:12px; font-size:14.5px; color:var(--dark-text)}
+  #fg .donts li::before{content:"—"; color:var(--dark-sub); flex:none}
+
+  /* ── faq ── */
+  #fg details{border-top:1px solid var(--line)}
+  #fg details:last-of-type{border-bottom:1px solid var(--line)}
+  #fg summary{
+    cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;
+    padding:18px 2px; font-weight:700; font-size:15px; gap:16px;
+  }
+  #fg summary::-webkit-details-marker{display:none}
+  #fg summary::after{content:"+"; color:var(--mist); font-weight:400; font-size:20px; flex:none}
+  #fg details[open] summary::after{content:"–"}
+  #fg summary:focus-visible{outline:2px solid var(--mist); outline-offset:2px}
+  #fg details p{margin:0 0 20px; padding:0 2px; color:var(--slate); font-size:14.5px}
+
+  /* ── footer ── */
+  #fg .foot{background:var(--dark-ink); color:var(--dark-sub); margin-top:64px}
+  #fg .foot-in{max-width:800px; margin:0 auto; padding:44px 24px 52px; font-size:13px}
+  #fg .foot b{color:var(--dark-text); font-size:14px; letter-spacing:.03em}
+  #fg .foot a{color:var(--dark-text); text-decoration:none}
+  #fg .foot a:hover{text-decoration:underline; text-underline-offset:4px}
+  #fg .foot .row{display:flex; flex-wrap:wrap; gap:8px 22px; margin:14px 0 0}
+  #fg .foot .legal{margin-top:28px; padding-top:20px; border-top:1px solid rgba(255,255,255,.12); font-size:12px; line-height:1.8}
+
+  @media (max-width:560px){
+    #fg .legend{grid-template-columns:1fr}
+    #fg .sec{padding:52px 0}
+  }
+
+  /* ── mobile: center like the product page ── */
+  @media (max-width:879px){
+    #fg .step{grid-template-columns:1fr; gap:4px}
+    #fg .step-no{padding-top:0; text-align:center}
+    #fg .step-txt{text-align:center}
+    #fg .step-txt p{margin-left:auto; margin-right:auto}
+    #fg .step figure{grid-column:1; margin-top:16px}
+    #fg .legend{width:fit-content; margin-left:auto; margin-right:auto}
+    #fg .moves li{border-left:0; padding-left:0; text-align:center}
+    #fg .donts{width:fit-content; margin-left:auto; margin-right:auto}
+    #fg .foot-in{text-align:center}
+    #fg .foot .row{justify-content:center}
+    #fg table th, #fg table td{text-align:left}
+    #fg summary, #fg details p{text-align:left}
+  }
+</style>
+<section id="setup" class="sec">
+  <div class="wrap-lg">
+    <p class="eyebrow">SETUP</p>
+    <h2>설치</h2>
+    <p class="lead">도구 없이 약 30초. 수평계가 나를 바라보는 방향으로 잡고 시작하세요.</p>
+    <figure class="plate">
+      <video src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/install.mp4" controls playsinline preload="metadata" aria-label="설치 가이드 영상"></video>
+      <figcaption>설치 과정 전체를 영상으로 확인하실 수 있습니다.</figcaption>
+    </figure>
+    <div style="margin-top:12px">
+      <div class="step">
+        <div class="step-no">01</div>
+        <div class="step-txt">
+          <h3>길이를 늘립니다</h3>
+          <p>양쪽 잠금 노브(⑤)를 모두 풉니다. 중앙 회전부(④)를 돌려 문틀 너비에 맞게 늘립니다.</p>
+        </div>
+        <figure class="plate"><img src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/step01.jpg" alt="잠금 노브를 풀고 중앙 회전부를 돌리는 도해"></figure>
+      </div>
+      <div class="step">
+        <div class="step-no">02</div>
+        <div class="step-txt">
+          <h3>위치를 잡습니다</h3>
+          <p>철봉을 수평으로 들어 원하는 높이에 둡니다. <strong>상단 마운트(③)가 위를 향해야</strong> 합니다. 한쪽 끝을 잡고 반대쪽을 벽에 댄 뒤, 손을 놓아도 떨어지지 않을 만큼만 고정합니다. 아직 세게 조이지 마세요.</p>
+        </div>
+        <figure class="plate"><img src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/step02.jpg" alt="상단 마운트가 위를 향한 상태로 문틀에 거치하는 도해"></figure>
+      </div>
+      <div class="step">
+        <div class="step-no">03</div>
+        <div class="step-txt">
+          <h3>수평을 맞춥니다</h3>
+          <p>양쪽 수평계(①)의 공기방울이 가운데에 오도록 맞춥니다.</p>
+        </div>
+        <figure class="plate"><img src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/step03.jpg" alt="수평계 공기방울을 중앙에 맞추는 도해"></figure>
+      </div>
+      <div class="step">
+        <div class="step-no">04</div>
+        <div class="step-txt">
+          <h3>끝까지 조입니다</h3>
+          <p>중앙 회전부(④)를 더 돌아가지 않을 때까지 돌려 벽면에 완전히 밀착시킵니다. 양쪽 그립을 잡고 아래로 힘껏 당겼을 때 움직이지 않으면 제대로 고정된 것입니다.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-no">05</div>
+        <div class="step-txt">
+          <h3>잠급니다</h3>
+          <p>양쪽 잠금 노브(⑤)를 조여 중앙 회전부가 돌아가지 않도록 고정하면 설치가 끝납니다.</p>
+        </div>
+        <figure class="plate"><img src="https://fitable-jeongbeom.github.io/fitable-guides/widepullup/assets/step05.jpg" alt="완전 고정 후 잠금 노브를 잠그는 도해"></figure>
+      </div>
+    </div>
+    <p class="check">설치 후 첫 사용은 가벼운 하중부터 점진적으로 테스트하세요. 이후에도 사용 전에는 매번, 발이 바닥에 닿은 상태에서 철봉을 아래로 힘껏 당겨 확인하세요. 흔들리거나 소리가 나면 사용하지 말고 다시 설치해 주세요.</p>
+  </div>
+</section>
+
+<section id="care" class="sec wrap">
+  <p class="eyebrow">CARE</p>
+  <h2>점검과 보관</h2>
+  <table>
+    <tr><th scope="col">시점</th><th scope="col">점검</th></tr>
+    <tr><td>사용 전 매번</td><td>양손으로 강하게 눌러 흔들림과 소음을 확인합니다.</td></tr>
+    <tr><td>7일마다</td><td>잠금 노브를 풀고 중앙 회전부를 다시 꽉 조여 재설치합니다.</td></tr>
+    <tr><td>7일 이상 미사용 후</td><td>완전히 분해한 후 처음부터 다시 설치합니다.</td></tr>
+  </table>
+  <p class="lead" style="font-size:14.5px">반복된 하중으로 부품 체결이 느슨해질 수 있어 정기적인 점검이 필요합니다. 분리해 보관하실 때는 어린이 손이 닿지 않는 곳에 두시고, 압착면은 마른 천으로 정기적으로 닦아 주세요.</p>
+</section>
+
+<section id="faq" class="sec wrap">
+  <p class="eyebrow">FAQ</p>
+  <h2>자주 묻는 질문</h2>
+  <div style="margin-top:24px">
+    <details>
+      <summary>설치했는데 흔들려요</summary>
+      <p>중앙 회전부가 더 이상 돌아가지 않을 때까지 조여졌는지 확인해 주세요. 양쪽 압착면이 벽에 완전히 닿아야 합니다. 다 조인 뒤에는 양쪽 잠금 노브까지 잠가 주세요.</p>
+    </details>
+    <details>
+      <summary>수평이 안 맞아요</summary>
+      <p>양쪽 수평계의 공기방울을 모두 가운데로 맞춘 다음 세게 조여 주세요. 수평을 맞추기 전에 강하게 조이면 다시 조정하기 어렵습니다.</p>
+    </details>
+    <details>
+      <summary>한쪽만 짧게 나온 것 같아요</summary>
+      <p>중앙 회전부만 돌리면 양쪽이 똑같이 늘어나는 구조입니다. 한쪽씩 따로 맞추지 마시고, 철봉을 문틀 가운데에 맞춘 뒤 다시 조여 주세요.</p>
+    </details>
+    <details>
+      <summary>철봉이 풀려 내려와요</summary>
+      <p>문틀 안쪽 너비가 72–96cm인지 먼저 확인해 주세요. 범위 안이라면 잠금 노브를 풀고 중앙 회전부를 최대한 조인 뒤 잠금 노브를 다시 잠가 주세요. 7일 이상 사용하지 않으셨다면 완전히 분해한 후 재설치해 주세요.</p>
+    </details>
+    <details>
+      <summary>벽에 자국이 남아요</summary>
+      <p>필름 문틀은 압착 부위에 일시적 자국이 남을 수 있으나 시간이 지나면 회복됩니다. 압착식 제품의 공통 특성입니다.</p>
+    </details>
+    <details>
+      <summary>전세·월세인데 설치해도 되나요</summary>
+      <p>타공이 필요 없어 문틀에 구멍을 뚫지 않습니다. 압착 부위의 자국은 일시적이며 시간이 지나면 회복됩니다.</p>
+    </details>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-in">
+    <b>도움이 필요하신가요</b>
+    <div class="row">
+      <a href="https://fitable.channel.io/home">채널톡 문의</a>
+      <span>070-4415-1857 (평일 10–16시)</span>
+    </div>
+    <p class="legal">안내된 사항을 준수하지 않을 경우 부상의 위험이 있습니다. 이상 발견 시 즉시 사용을 중단하고 고객센터로 문의해 주세요. 안전수칙 미준수로 인한 사고에 대해 제조사는 책임지지 않습니다.<br>주식회사 페셔네이트 · FITABLE · 충청남도 천안시 서북구 불당 36길 63, 304-25호</p>
+  </div>
+</footer>
+</div>
