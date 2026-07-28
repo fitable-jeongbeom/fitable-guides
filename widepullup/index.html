@@ -195,6 +195,22 @@
   .fab:focus-visible{outline:2px solid var(--mist); outline-offset:3px}
   .fab svg{width:18px; height:18px; flex:none}
   @media (prefers-reduced-motion: reduce){ .fab:hover{transform:none} }
+
+  /* ── mobile: center like the product page ── */
+  @media (max-width:879px){
+    .step{grid-template-columns:1fr; gap:4px}
+    .step-no{padding-top:0; text-align:center}
+    .step-txt{text-align:center}
+    .step-txt p{margin-left:auto; margin-right:auto}
+    .step figure{grid-column:1; margin-top:16px}
+    .legend{width:fit-content; margin-left:auto; margin-right:auto}
+    .moves li{border-left:0; padding-left:0; text-align:center}
+    .donts{width:fit-content; margin-left:auto; margin-right:auto}
+    .foot-in{text-align:center}
+    .foot .row{justify-content:center}
+    table th, table td{text-align:left}
+    summary, details p{text-align:left}
+  }
 </style>
 
 <nav class="nav" aria-label="가이드 목차">
